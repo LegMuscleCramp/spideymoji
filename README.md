@@ -1,2 +1,2 @@
 # spideymoji
-Facebook-inspired reactions with a friendly neighborhood twist
+"Like" reactions with a friendly neighborhood twist
