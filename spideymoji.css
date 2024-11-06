@@ -1,0 +1,125 @@
+.spideymoji {
+    position: relative;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.spidey-button {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.spidey-button[data-set="true"] {
+    font-weight: bold;
+    color: #ce3434;
+}
+
+.spidey-current-reaction {
+    text-align: center;
+}
+
+.spidey-current-reaction img {
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.spidey-reactions-container {
+    display: none;
+    opacity: 0;
+    background: #fff;
+    box-sizing: border-box;
+    width: 342px;
+    padding: 5px 3px;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px #aaa;
+    transition: .2s ease;
+}
+
+.spideymoji.hover .spidey-button {
+    background-color: #eee;
+}
+
+.spideymoji.hover .spidey-reactions-container {
+    display: block;
+    opacity: 1;
+}
+
+.spidey-reaction {
+    min-height: 40px;
+    min-width: 40px;
+    padding: 0 4px;
+    float: left;
+    position: relative;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.spidey-img {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    transition: .2s ease;
+    border-radius: 50%;
+    box-shadow: 0 2px 2px #aaa;
+}
+
+.spidey-img img {
+    height: 100%;
+    width: 100%;
+}
+
+.spidey-reaction.hover .spidey-img {
+    height: 46px;
+    width: 46px;
+    margin-left: -3px;
+    margin-top: -16px;
+}
+
+.spidey-reaction.hover::before {
+    background-color: #0059c7;
+    border-radius: 30px;
+    box-sizing: border-box;
+    width: 46px;
+    padding: 3px 5px;
+    position: absolute;
+    top: -40px;
+    margin-left: -5px;
+    opacity: .8;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+
+.spidey-reaction.hover[data-reaction="Thwip"]::before {
+    content: "Thwip";
+}
+
+.spidey-reaction.hover[data-reaction="Yay"]::before {
+    content: "Yay";
+}
+
+.spidey-reaction.hover[data-reaction="Love"]::before {
+    content: "Love";
+}
+
+.spidey-reaction.hover[data-reaction="Wow"]::before {
+    content: "Wow";
+}
+
+.spidey-reaction.hover[data-reaction="Huh"]::before {
+    content: "Huh";
+}
+
+.spidey-reaction.hover[data-reaction="Sad"]::before {
+    content: "Sad";
+}
+
+.spidey-reaction.hover[data-reaction="Angry"]::before {
+    content: "Angry";
+}
