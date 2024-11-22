@@ -17,13 +17,19 @@
 }
 
 .spidey-current-reaction {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .spidey-current-reaction img {
     height: 30px;
     vertical-align: middle;
     margin-right: 10px;
+}
+
+.spidey-button[data-set=false] .spidey-current-reaction img {
+    filter: grayscale(100%) brightness(1.8);
 }
 
 .spidey-reactions-container {

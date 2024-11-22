@@ -8,7 +8,7 @@ function buildSpideymoji(button) {
 function buildSpideymojiHtml() {
     let spideymojiInnerHtml = '<div class="spidey-button" data-set="false">';
         spideymojiInnerHtml += '<div class="spidey-current-reaction" data-set="false">';
-            spideymojiInnerHtml += '<img class="spidey-current-img" src="img/spidey-thwip-grey.png" alt="greyed out Spidey thwip emoji">';
+            spideymojiInnerHtml += '<img class="spidey-current-img" src="img/spidey-thwip.png" alt="greyed out Spidey thwip emoji">';
             spideymojiInnerHtml += '<span class="spidey-current-text">Thwip</span>';
         spideymojiInnerHtml += '</div>';
     spideymojiInnerHtml += '</div>';
