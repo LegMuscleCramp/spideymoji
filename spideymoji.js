@@ -66,7 +66,7 @@ function addEventListeners(target,isMainButton) {
         if(isMainButton) {
             hoverTimeout = setTimeout(function() {
                 e.target.classList.add('hover');
-            },500);
+            },650);
         } else {
             e.target.classList.add('hover');
         }
