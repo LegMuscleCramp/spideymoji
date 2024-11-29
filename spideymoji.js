@@ -91,7 +91,9 @@ function addEventListeners(target,isMainButton) {
             if(spideyButton.getAttribute('data-set')=='false') {
                 spideyButton.setAttribute('data-set','true');
             } else {
-                spideyButton.setAttribute('data-set','false');
+                spideyButton.setAttribute('data-set','false');          
+                // set default icon and text when "removing" reaction
+                // default reaction is first reaction in set
             }
         } else {
             e.stopPropagation();
