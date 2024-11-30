@@ -86,21 +86,24 @@ function addEventListeners(target,isMainButton) {
     });
 
     target.addEventListener('click', function(e) {
+        const CLICK_TARGET = e.currentTarget;
         if(isMainButton) {
-            const spideyButton = e.currentTarget.querySelector('.spidey-button');
-            if(spideyButton.getAttribute('data-set')=='false') {
-                spideyButton.setAttribute('data-set','true');
+            const SPIDEY_BUTTON = CLICK_TARGET.querySelector('.spidey-button');
+            if(SPIDEY_BUTTON.getAttribute('data-set')=='false') {
+                SPIDEY_BUTTON.setAttribute('data-set','true');
             } else {
-                spideyButton.setAttribute('data-set','false');          
-                // set default icon and text when "removing" reaction
-                // default reaction is first reaction in set
+                const MAIN_REACTION = CLICK_TARGET.querySelector('.spidey-reactions-container .spidey-reaction');
+                const MAIN_REACTION_IMG = MAIN_REACTION.querySelector('.spidey-img img').getAttribute('src');
+                const MAIN_REACTION_TEXT = MAIN_REACTION.getAttribute('data-reaction');
+                SPIDEY_BUTTON.setAttribute('data-set','false');
+                SPIDEY_BUTTON.querySelector('.spidey-current-img').setAttribute('src',MAIN_REACTION_IMG);
+                SPIDEY_BUTTON.querySelector('.spidey-current-text').innerHTML = MAIN_REACTION_TEXT;
             }
         } else {
             e.stopPropagation();
-            const target = e.currentTarget;
-            const dataReaction = target.getAttribute('data-reaction');
-            const spideyImg = target.querySelector('.spidey-img img').getAttribute('src');
-            const closestSpideymoji = target.closest('.spideymoji');
+            const dataReaction = CLICK_TARGET.getAttribute('data-reaction');
+            const spideyImg = CLICK_TARGET.querySelector('.spidey-img img').getAttribute('src');
+            const closestSpideymoji = CLICK_TARGET.closest('.spideymoji');
             closestSpideymoji.classList.remove('hover');
             closestSpideymoji.querySelector('.spidey-button').setAttribute('data-set','true');
             closestSpideymoji.querySelector('.spidey-button .spidey-current-img').setAttribute('src',spideyImg);
