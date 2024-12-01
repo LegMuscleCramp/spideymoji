@@ -39,8 +39,7 @@
     opacity: 0;
     background: #fff;
     box-sizing: border-box;
-    width: 342px;
-    padding: 5px 3px;
+    width: auto;
     position: absolute;
     top: -50px;
     left: 0;
@@ -54,18 +53,25 @@
 }
 
 .spideymoji.hover .spidey-reactions-container {
-    display: block;
+    display: flex;
     opacity: 1;
 }
 
 .spidey-reaction {
     min-height: 40px;
     min-width: 40px;
-    padding: 0 4px;
-    float: left;
+    padding: 5px 4px;
     position: relative;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.spidey-reaction:first-child {
+    padding-left: 7px;
+}
+
+.spidey-reaction:last-child {
+    padding-right: 7px;
 }
 
 .spidey-img {
