@@ -88,26 +88,26 @@ function addEventListeners(target,isMainButton) {
     target.addEventListener('click', function(e) {
         const CLICK_TARGET = e.currentTarget;
         if(isMainButton) {
-            const SPIDEY_BUTTON = CLICK_TARGET.querySelector('.spidey-button');
-            if(SPIDEY_BUTTON.getAttribute('data-set')=='false') {
-                SPIDEY_BUTTON.setAttribute('data-set','true');
+            const SPIDEY_BTN = CLICK_TARGET.querySelector('.spidey-button');
+            if(SPIDEY_BTN.getAttribute('data-set')=='false') {
+                SPIDEY_BTN.setAttribute('data-set','true');
             } else {
-                const MAIN_REACTION = CLICK_TARGET.querySelector('.spidey-reactions-container .spidey-reaction');
-                const MAIN_REACTION_IMG = MAIN_REACTION.querySelector('.spidey-img img').getAttribute('src');
-                const MAIN_REACTION_TEXT = MAIN_REACTION.getAttribute('data-reaction');
-                SPIDEY_BUTTON.setAttribute('data-set','false');
-                SPIDEY_BUTTON.querySelector('.spidey-current-img').setAttribute('src',MAIN_REACTION_IMG);
-                SPIDEY_BUTTON.querySelector('.spidey-current-text').innerHTML = MAIN_REACTION_TEXT;
+                const DEFAULT_REACTION = CLICK_TARGET.querySelector('.spidey-reactions-container .spidey-reaction');
+                const DEFAULT_REACTION_IMG = DEFAULT_REACTION.querySelector('.spidey-img img').getAttribute('src');
+                const DEFAULT_REACTION_TEXT = DEFAULT_REACTION.getAttribute('data-reaction');
+                SPIDEY_BTN.setAttribute('data-set','false');
+                SPIDEY_BTN.querySelector('.spidey-current-img').setAttribute('src',DEFAULT_REACTION_IMG);
+                SPIDEY_BTN.querySelector('.spidey-current-text').innerHTML = DEFAULT_REACTION_TEXT;
             }
         } else {
             e.stopPropagation();
-            const dataReaction = CLICK_TARGET.getAttribute('data-reaction');
-            const spideyImg = CLICK_TARGET.querySelector('.spidey-img img').getAttribute('src');
-            const closestSpideymoji = CLICK_TARGET.closest('.spideymoji');
-            closestSpideymoji.classList.remove('hover');
-            closestSpideymoji.querySelector('.spidey-button').setAttribute('data-set','true');
-            closestSpideymoji.querySelector('.spidey-button .spidey-current-img').setAttribute('src',spideyImg);
-            closestSpideymoji.querySelector('.spidey-button .spidey-current-text').innerHTML = dataReaction;
+            const SELECTED_REACTION_IMG = CLICK_TARGET.querySelector('.spidey-img img').getAttribute('src');
+            const SELECTED_REACTION_TEXT = CLICK_TARGET.getAttribute('data-reaction');
+            const CURRENT_SPIDEYMOJI_BTN = CLICK_TARGET.closest('.spideymoji');
+            CURRENT_SPIDEYMOJI_BTN.classList.remove('hover');
+            CURRENT_SPIDEYMOJI_BTN.querySelector('.spidey-button').setAttribute('data-set','true');
+            CURRENT_SPIDEYMOJI_BTN.querySelector('.spidey-button .spidey-current-img').setAttribute('src',SELECTED_REACTION_IMG);
+            CURRENT_SPIDEYMOJI_BTN.querySelector('.spidey-button .spidey-current-text').innerHTML = SELECTED_REACTION_TEXT;
         }
     });
 
