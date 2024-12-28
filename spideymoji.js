@@ -98,6 +98,8 @@ function addEventListeners(target,isMainButton) {
                 SPIDEY_BTN.setAttribute('data-set','false');
                 SPIDEY_BTN.querySelector('.spidey-current-img').setAttribute('src',DEFAULT_REACTION_IMG);
                 SPIDEY_BTN.querySelector('.spidey-current-text').innerHTML = DEFAULT_REACTION_TEXT;
+                clearTimeout(hoverTimeout);
+                CLICK_TARGET.classList.remove('hover');
             }
         } else {
             e.stopPropagation();
