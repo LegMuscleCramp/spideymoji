@@ -59,18 +59,32 @@ function buildSpideymojiHtml() {
     return spideymojiInnerHtml;
 }
 
-function addEventListeners(target,isMainButton) {
-    let hoverTimeout;
+function mouseenterEventListener(target,isMainButton,hoverTimeout) {
     target.addEventListener('mouseenter',function(e) {
         clearTimeout(hoverTimeout);
         if(isMainButton) {
             hoverTimeout = setTimeout(function() {
                 e.target.classList.add('hover');
             },650);
-        } else {
-            e.target.classList.add('hover');
         }
     });
+}
+
+function addEventListeners(target,isMainButton) {
+    let hoverTimeout;
+    // target.addEventListener('mouseenter',function(e) {
+    //     clearTimeout(hoverTimeout);
+    //     if(isMainButton) {
+    //         hoverTimeout = setTimeout(function() {
+    //             e.target.classList.add('hover');
+    //         },650);
+    //     } else {
+    //         e.target.classList.add('hover');
+    //     }
+    // });
+
+    // this is currently not working
+    mouseenterEventListener(target,isMainButton,hoverTimeout);
 
     target.addEventListener('mouseleave',function(e) {
         if(isMainButton) {
