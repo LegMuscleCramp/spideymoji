@@ -1,3 +1,5 @@
+let hoverTimeout;
+
 function buildSpideymoji(button) {
     button.innerHTML = buildSpideymojiHtml();
     addEventListeners(button,true);
@@ -59,6 +61,9 @@ function buildSpideymojiHtml() {
     return spideymojiInnerHtml;
 }
 
+// mouseleave is still triggering when leaving main button but hovering into reactions container before it disappears
+// clearTimeout is not bubbling up to to main button?
+
 function mouseenterEventListener(target,isMainButton,hoverTimeout) {
     target.addEventListener('mouseenter',function(e) {
         clearTimeout(hoverTimeout);
@@ -66,12 +71,11 @@ function mouseenterEventListener(target,isMainButton,hoverTimeout) {
             hoverTimeout = setTimeout(function() {
                 e.target.classList.add('hover');
             },650);
-        }
+        } e.target.classList.add('hover');
     });
 }
 
 function addEventListeners(target,isMainButton) {
-    let hoverTimeout;
     // target.addEventListener('mouseenter',function(e) {
     //     clearTimeout(hoverTimeout);
     //     if(isMainButton) {
