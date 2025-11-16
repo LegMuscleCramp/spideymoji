@@ -7,6 +7,7 @@ function buildSpideymoji(button) {
     .forEach(spideyReaction => addEventListeners(spideyReaction,false));
 }
 
+// function to create html for spideymoji button
 function buildSpideymojiHtml() {
     let spideymojiInnerHtml = '<div class="spidey-button" data-set="false">';
         spideymojiInnerHtml += '<div class="spidey-current-reaction" data-set="false">';
@@ -70,38 +71,30 @@ function mouseenterEventListener(target,isMainButton,hoverTimeout) {
         if(isMainButton) {
             hoverTimeout = setTimeout(function() {
                 e.target.classList.add('hover');
+                console.log('target: '+target+' hovered');
+                console.log(target);
             },650);
-        } e.target.classList.add('hover');
+        } else {
+            e.target.classList.add('hover');
+        }
     });
 }
 
 function addEventListeners(target,isMainButton) {
-    // target.addEventListener('mouseenter',function(e) {
-    //     clearTimeout(hoverTimeout);
-    //     if(isMainButton) {
-    //         hoverTimeout = setTimeout(function() {
-    //             e.target.classList.add('hover');
-    //         },650);
-    //     } else {
-    //         e.target.classList.add('hover');
-    //     }
-    // });
-
-    // this is currently not working
     mouseenterEventListener(target,isMainButton,hoverTimeout);
 
-    target.addEventListener('mouseleave',function(e) {
-        if(isMainButton) {
-            clearTimeout(hoverTimeout);
-            if(e.target.classList.contains('hover')) {
-                hoverTimeout = setTimeout(function() {
-                    e.target.classList.remove('hover');
-                },500);
-            }
-        } else {
-            e.target.classList.remove('hover');
-        }
-    });
+    // target.addEventListener('mouseleave',function(e) {
+    //     if(isMainButton) {
+    //         clearTimeout(hoverTimeout);
+    //         if(e.target.classList.contains('hover')) {
+    //             hoverTimeout = setTimeout(function() {
+    //                 e.target.classList.remove('hover');
+    //             },500);
+    //         }
+    //     } else {
+    //         e.target.classList.remove('hover');
+    //     }
+    // });
 
     target.addEventListener('click', function(e) {
         const CLICK_TARGET = e.currentTarget;
