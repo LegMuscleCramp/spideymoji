@@ -62,9 +62,6 @@ function buildSpideymojiHtml() {
     return spideymojiInnerHtml;
 }
 
-// mouseleave is still triggering when leaving main button but hovering into reactions container before it disappears
-// clearTimeout is not bubbling up to to main button?
-
 function mouseenterEventListener(target,isMainButton) {
     target.addEventListener('mouseenter',function(e) {
         console.log('mouse entered on ' + target)
