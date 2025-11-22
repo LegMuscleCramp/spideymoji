@@ -65,14 +65,13 @@ function buildSpideymojiHtml() {
 // mouseleave is still triggering when leaving main button but hovering into reactions container before it disappears
 // clearTimeout is not bubbling up to to main button?
 
-function mouseenterEventListener(target,isMainButton,hoverTimeout) {
+function mouseenterEventListener(target,isMainButton) {
     target.addEventListener('mouseenter',function(e) {
+        console.log('mouse entered on ' + target)
         clearTimeout(hoverTimeout);
         if(isMainButton) {
             hoverTimeout = setTimeout(function() {
                 e.target.classList.add('hover');
-                console.log('target: '+target+' hovered');
-                console.log(target);
             },650);
         } else {
             e.target.classList.add('hover');
@@ -80,22 +79,22 @@ function mouseenterEventListener(target,isMainButton,hoverTimeout) {
     });
 }
 
-function addEventListeners(target,isMainButton) {
-    mouseenterEventListener(target,isMainButton,hoverTimeout);
+function mouseleaveEventListener(target,isMainButton) {
+    target.addEventListener('mouseleave',function(e) {
+        if(isMainButton) {
+            clearTimeout(hoverTimeout);
+            if(e.target.classList.contains('hover')) {
+                hoverTimeout = setTimeout(function() {
+                    e.target.classList.remove('hover');
+                },500);
+            }
+        } else {
+            e.target.classList.remove('hover');
+        }
+    });
+}
 
-    // target.addEventListener('mouseleave',function(e) {
-    //     if(isMainButton) {
-    //         clearTimeout(hoverTimeout);
-    //         if(e.target.classList.contains('hover')) {
-    //             hoverTimeout = setTimeout(function() {
-    //                 e.target.classList.remove('hover');
-    //             },500);
-    //         }
-    //     } else {
-    //         e.target.classList.remove('hover');
-    //     }
-    // });
-
+function clickEventListener(target,isMainButton) {
     target.addEventListener('click', function(e) {
         const CLICK_TARGET = e.currentTarget;
         if(isMainButton) {
@@ -123,20 +122,26 @@ function addEventListeners(target,isMainButton) {
             CURRENT_SPIDEYMOJI_BTN.querySelector('.spidey-button .spidey-current-text').innerHTML = SELECTED_REACTION_TEXT;
         }
     });
+}
 
-    if(isMainButton) {
-        target.addEventListener('touchstart',function(e) {
+function addEventListeners(target,isMainButton) {
+    mouseenterEventListener(target,isMainButton);
+    mouseleaveEventListener(target,isMainButton);
+    clickEventListener(target,isMainButton);
 
-        });
+    // if(isMainButton) {
+    //     target.addEventListener('touchstart',function(e) {
 
-        target.addEventListener('touchend',function(e) {
+    //     });
 
-        });
+    //     target.addEventListener('touchend',function(e) {
 
-        target.addEventListener('touchmove',function(e) {
+    //     });
 
-        });
-    }
+    //     target.addEventListener('touchmove',function(e) {
+
+    //     });
+    // }
 }
 
 document.querySelectorAll(".spideymoji")
