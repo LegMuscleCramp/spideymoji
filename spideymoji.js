@@ -1,3 +1,5 @@
+let hoverTimeout;
+
 function buildSpideymoji(button) {
     button.innerHTML = buildSpideymojiHtml();
     addEventListeners(button,true);
@@ -5,6 +7,7 @@ function buildSpideymoji(button) {
     .forEach(spideyReaction => addEventListeners(spideyReaction,false));
 }
 
+// function to create html for spideymoji button
 function buildSpideymojiHtml() {
     let spideymojiInnerHtml = '<div class="spidey-button" data-set="false">';
         spideymojiInnerHtml += '<div class="spidey-current-reaction" data-set="false">';
@@ -59,8 +62,7 @@ function buildSpideymojiHtml() {
     return spideymojiInnerHtml;
 }
 
-function addEventListeners(target,isMainButton) {
-    let hoverTimeout;
+function mouseenterEventListener(target,isMainButton) {
     target.addEventListener('mouseenter',function(e) {
         clearTimeout(hoverTimeout);
         if(isMainButton) {
@@ -71,7 +73,9 @@ function addEventListeners(target,isMainButton) {
             e.target.classList.add('hover');
         }
     });
+}
 
+function mouseleaveEventListener(target,isMainButton) {
     target.addEventListener('mouseleave',function(e) {
         if(isMainButton) {
             clearTimeout(hoverTimeout);
@@ -84,7 +88,9 @@ function addEventListeners(target,isMainButton) {
             e.target.classList.remove('hover');
         }
     });
+}
 
+function clickEventListener(target,isMainButton) {
     target.addEventListener('click', function(e) {
         const CLICK_TARGET = e.currentTarget;
         if(isMainButton) {
@@ -112,20 +118,26 @@ function addEventListeners(target,isMainButton) {
             CURRENT_SPIDEYMOJI_BTN.querySelector('.spidey-button .spidey-current-text').innerHTML = SELECTED_REACTION_TEXT;
         }
     });
+}
 
-    if(isMainButton) {
-        target.addEventListener('touchstart',function(e) {
+function addEventListeners(target,isMainButton) {
+    mouseenterEventListener(target,isMainButton);
+    mouseleaveEventListener(target,isMainButton);
+    clickEventListener(target,isMainButton);
 
-        });
+    // if(isMainButton) {
+    //     target.addEventListener('touchstart',function(e) {
 
-        target.addEventListener('touchend',function(e) {
+    //     });
 
-        });
+    //     target.addEventListener('touchend',function(e) {
 
-        target.addEventListener('touchmove',function(e) {
+    //     });
 
-        });
-    }
+    //     target.addEventListener('touchmove',function(e) {
+
+    //     });
+    // }
 }
 
 document.querySelectorAll(".spideymoji")
