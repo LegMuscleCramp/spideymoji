@@ -64,7 +64,6 @@ function buildSpideymojiHtml() {
 
 function mouseenterEventListener(target,isMainButton) {
     target.addEventListener('mouseenter',function(e) {
-        console.log('mouse entered on ' + target)
         clearTimeout(hoverTimeout);
         if(isMainButton) {
             hoverTimeout = setTimeout(function() {
