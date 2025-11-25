@@ -9,7 +9,7 @@
     - animations?
 -->
 
-# Design
+## Design
 The following are the reactions/emojis included by default with the library
 <br>
 | Emoji | Description |
@@ -22,7 +22,7 @@ The following are the reactions/emojis included by default with the library
 | ![spidey sad emoji](img/spidey-sad.png) | Spidey sad |
 | ![spidey angry emoji](img/spidey-angry.png) | Spidey angry |
 
-## These are the colors used in the design files
+### These are the colors used in the design files
 #CE3434
 <br>
 #0059C7
@@ -30,3 +30,22 @@ The following are the reactions/emojis included by default with the library
 #000000
 <br>
 #FFFFFF
+<br>
+#000000 | 40% opacity
+
+### This is the text used for the reactions
+- Thwip
+- Yay
+- Love
+- Wow
+- Huh
+- Sad
+- Angry
+
+### Button States
+There are three main button states:
+- Unselected
+- Hovered
+- Selected
+
+When the button is unselected, it has the default Thwip reaction in a grey color. Hover behavior is still being determined. When the button has been clicked from an unselected state or a reaction is selected, the button takes on the selected state, which shows the reaction that was selected. If the button was simply clicked without selecting a specific reaction, it hsoulds the default Thwip reaction in the selected state.
