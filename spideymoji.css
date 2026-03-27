@@ -55,6 +55,34 @@
 .spideymoji.hover .spidey-reactions-container {
     display: flex;
     opacity: 1;
+
+    .spidey-reaction {
+        animation: .4s ease-in-out 0s 1 reactions-bounce;
+    }
+
+    .spidey-reaction:nth-child(2) {
+        animation-delay: .05s;
+    }
+
+    .spidey-reaction:nth-child(3) {
+        animation-delay: .1s;
+    }
+
+    .spidey-reaction:nth-child(4) {
+        animation-delay: .15s;
+    }
+
+    .spidey-reaction:nth-child(5) {
+        animation-delay: .2s;
+    }
+    
+    .spidey-reaction:nth-child(6) {
+        animation-delay: .25s;
+    }
+
+    .spidey-reaction:last-child {
+        animation-delay: .3s;
+    }
 }
 
 .spidey-reaction {
@@ -136,4 +164,26 @@
 
 .spidey-reaction.hover[data-reaction="Angry"]::before {
     content: "Angry";
+}
+
+@keyframes reactions-bounce {
+    0% {
+        transform: translateY(0px);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(0px)
+    }
+
+    80% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
