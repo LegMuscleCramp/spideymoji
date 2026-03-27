@@ -61,27 +61,27 @@
     }
 
     .spidey-reaction:nth-child(2) {
-        animation-delay: .1s;
+        animation-delay: .05s;
     }
 
     .spidey-reaction:nth-child(3) {
-        animation-delay: .2s;
+        animation-delay: .1s;
     }
 
     .spidey-reaction:nth-child(4) {
-        animation-delay: .3s;
+        animation-delay: .15s;
     }
 
     .spidey-reaction:nth-child(5) {
-        animation-delay: .4s;
+        animation-delay: .2s;
     }
     
     .spidey-reaction:nth-child(6) {
-        animation-delay: .5s;
+        animation-delay: .25s;
     }
 
     .spidey-reaction:last-child {
-        animation-delay: .6s;
+        animation-delay: .3s;
     }
 }
 
